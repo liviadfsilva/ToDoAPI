@@ -19,12 +19,12 @@ public class Task {
 
     public Task () {}
 
-    public Task(String title, String description, boolean completed, boolean important, boolean urgent) {
+    public Task(String title, String description, boolean important, boolean urgent, boolean completed) {
         this.title = title;
         this.description = description;
-        this.completed = completed;
         this.important = important;
         this.urgent = urgent;
+        this.completed = completed;
 
     }
 
@@ -41,7 +41,7 @@ public class Task {
 
     public boolean getUrgent() { return urgent; }
     public void setUrgent(boolean urgent) { this.urgent = urgent; }
-    
+
     public boolean getCompleted() { return completed; }
     public void setCompleted(boolean completed) { this.completed = completed; }
 
