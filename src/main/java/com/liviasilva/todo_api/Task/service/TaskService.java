@@ -24,7 +24,17 @@ public class TaskService {
         return repository.findById(id);
     }
 
-    public Task saveTask(Task task) {
+    public Task createTask(Task task) {
+        return repository.save(task);
+    }
+
+    public Task updateTask(Long id, Task taskDetails) {
+        Task task = repository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Task not found"));
+        task.setTitle(taskDetails.getTitle());
+        task.setDescription(taskDetails.getDescription());
+        task.setImportant(taskDetails.getImportant());
+        task.setUrgent(taskDetails.getUrgent());
         return repository.save(task);
     }
     
@@ -40,7 +50,7 @@ public class TaskService {
         return repository.findByImportantAndUrgent(true, false);
     }
 
-    public List<Task> getNotImportantAndUrgentTasks() {
+    public List<Task> getNotImportantButUrgentTasks() {
         return repository.findByImportantAndUrgent(false, true);
     }
 
