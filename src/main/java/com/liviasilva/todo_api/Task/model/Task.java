@@ -1,4 +1,4 @@
-package com.liviasilva.todo_api.model;
+package com.liviasilva.todo_api.Task.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue; 

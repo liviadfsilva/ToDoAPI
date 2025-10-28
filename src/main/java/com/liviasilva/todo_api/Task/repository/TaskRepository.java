@@ -1,7 +1,7 @@
-package com.liviasilva.todo_api.repository;
+package com.liviasilva.todo_api.Task.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.liviasilva.todo_api.model.Task;
+import com.liviasilva.todo_api.Task.model.Task;
 import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {

@@ -1,11 +1,11 @@
-package com.liviasilva.todo_api.service;
+package com.liviasilva.todo_api.Task.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
-import com.liviasilva.todo_api.model.Task;
-import com.liviasilva.todo_api.repository.TaskRepository;
+import com.liviasilva.todo_api.Task.model.Task;
+import com.liviasilva.todo_api.Task.repository.TaskRepository;
 
 @Service
 public class TaskService {
