@@ -1,20 +1,32 @@
 package com.liviasilva.todo_api.Task.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue; 
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "tasks")
 public class Task {
     
     @Id
     @GeneratedValue
-
     private Long id;
+
+    @Column(unique = true, nullable = false)
     private String title;
+
+    @Column
     private String description;
+
+    @Column(name = "is_important", nullable = false)
     private boolean important;
+
+    @Column(name = "is_urgent", nullable = false)
     private boolean urgent;
+
+    @Column
     private boolean completed;
 
     public Task () {}
