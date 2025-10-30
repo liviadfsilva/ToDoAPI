@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.liviasilva.todo_api.User.dto.UserUpdateDTO;
 import com.liviasilva.todo_api.User.model.User;
 import com.liviasilva.todo_api.User.repository.UserRepository;
 
@@ -27,26 +29,25 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
-    // Create User
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public void registerUser(String name, String email, String rawPassword) {
+    public User registerUser(String name, String email, String rawPassword) {
         String encodedPassword = passwordEncoder.encode(rawPassword);
         User user = new User();
         user.setName(name);
         user.setEmail(email);
         user.setPassword(encodedPassword);
-        userRepository.save(user);
+        return userRepository.save(user);
     }
 
-    public void updateUser(Long id, User userDetails) {
+    public User updateUser(Long id, UserUpdateDTO dto) {
         User user = userRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("User not found"));
-        user.setName(userDetails.getName());
-        user.setEmail(userDetails.getEmail());
+        user.setName(dto.getName());
+        user.setEmail(dto.getEmail());
 
-        String newPassword = userDetails.getPassword();
+        String newPassword = dto.getPassword();
         if (newPassword != null && !newPassword.isEmpty()) {
             if (passwordEncoder.matches(newPassword, user.getPassword())) {
                 throw new RuntimeException("New password must be different from the previous password");
@@ -54,8 +55,8 @@ public class UserService {
 
             user.setPassword(passwordEncoder.encode(newPassword));
         }
-
-        userRepository.save(user);
+        
+        return userRepository.save(user);
     }
 
     public void deleteUser(Long id) {
