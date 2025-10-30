@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
-    List<Task> findByImportantAndUrgent(Boolean important, Boolean urgent);
+    List<Task> findByImportantAndUrgent(boolean important, boolean urgent);
 
 }
