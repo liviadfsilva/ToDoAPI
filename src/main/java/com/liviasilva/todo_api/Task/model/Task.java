@@ -21,17 +21,17 @@ public class Task {
     private String description;
 
     @Column(name = "is_important", nullable = false)
-    private boolean important;
+    private Boolean important;
 
     @Column(name = "is_urgent", nullable = false)
-    private boolean urgent;
+    private Boolean urgent;
 
     @Column
     private boolean completed;
 
     public Task () {}
 
-    public Task(String title, String description, boolean important, boolean urgent, boolean completed) {
+    public Task(String title, String description, Boolean important, Boolean urgent, Boolean completed) {
         this.title = title;
         this.description = description;
         this.important = important;
@@ -49,12 +49,12 @@ public class Task {
     public void setDescription(String description) { this.description = description; }
 
     public boolean getImportant() { return important; }
-    public void setImportant(boolean important) { this.important = important; }
+    public void setImportant(Boolean important) { this.important = important; }
 
     public boolean getUrgent() { return urgent; }
-    public void setUrgent(boolean urgent) { this.urgent = urgent; }
+    public void setUrgent(Boolean urgent) { this.urgent = urgent; }
 
     public boolean getCompleted() { return completed; }
-    public void setCompleted(boolean completed) { this.completed = completed; }
+    public void setCompleted(Boolean completed) { this.completed = completed; }
 
 }
