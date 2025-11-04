@@ -7,8 +7,6 @@
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-white?style=for-the-badge)
 ![Licence](https://img.shields.io/badge/Licence-MIT-pink?style=for-the-badge)
 
-<br>
-
 ## About ✨
 This To-Do API was deeply inspired by the Eisenhower Matrix, a task management tool which focuses on organising and prioritising tasks by importance and urgency.
 
@@ -48,6 +46,7 @@ E.g.
    ```bash
     mvn spring-boot:run
     ```
+<br>
 
 #### The application will start at:
 ꩜ **http://localhost:8080**
