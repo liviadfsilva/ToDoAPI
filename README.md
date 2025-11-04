@@ -29,7 +29,7 @@ E.g.
    cd ToDoAPI
    ```
 
-2. **Copie o arquivo `.env.example` para `.env` e mude as variáveis de ambiente caso sinta necessidade:**
+2. **Copy the .env.example file to .env and change the environment variables if necessary:**
 
    ```sh
    cp .env.example .env
@@ -46,7 +46,6 @@ E.g.
    ```bash
     mvn spring-boot:run
     ```
-<br>
 
 #### The application will start at:
 ꩜ **http://localhost:8080**
