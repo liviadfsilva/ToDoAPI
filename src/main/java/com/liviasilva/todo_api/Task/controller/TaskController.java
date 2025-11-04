@@ -2,6 +2,7 @@ package com.liviasilva.todo_api.Task.controller;
 
 import java.util.List;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.liviasilva.todo_api.Task.model.Task;
 import com.liviasilva.todo_api.Task.service.TaskService;
+import com.liviasilva.todo_api.User.model.User;
 
 @RestController
 @RequestMapping("/tasks")
@@ -36,9 +38,10 @@ public class TaskController {
     }
 
     @PostMapping
-    public Task createTask(@RequestBody Task task) {
+    public Task createTask(@RequestBody Task task, @AuthenticationPrincipal User user) {
+        task.setUser(user);
         return service.createTask(task);
-    }
+}
 
     @PutMapping("/{id}")
     public Task updateTask(@PathVariable Long id, @RequestBody Task task) {
