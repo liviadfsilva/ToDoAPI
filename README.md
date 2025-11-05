@@ -51,7 +51,7 @@ E.g.
 ꩜ **http://localhost:8080**
 
 #### Access the Swagger documentation:
-📜 **http://localhost:8080/swagger-ui.html**
+📜 **http://localhost:8080/swagger-ui/index.html**
 
 <br>
 
